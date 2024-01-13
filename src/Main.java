@@ -105,7 +105,7 @@ public class Main {
                     badGuessesCount++;
                     int guessesLeft = 9-badGuessesCount;
                     System.out.println("Sorry, this letter is not in the word. You have "+ guessesLeft+" guesses left.");
-                    System.out.println("Hangman:");
+                    System.out.println("Hangman: ");
                     System.out.println(printHangman(badGuessesCount));
                     if (8>=badGuessesCount) {
                         System.out.println(updateDashes(word, playerGuesses, newWord));
