@@ -17,6 +17,7 @@ public class Main {
         while (scanner.hasNext()) {
             words.add(scanner.nextLine());
         }
+
         Random rand = new Random();
         String word = words.get(rand.nextInt(words.size()));
 
@@ -33,6 +34,7 @@ public class Main {
     }
     public static void everything(String word, List<Character> playerGuesses, int badGuessesCount, StringBuilder newWord, int goodGuessesCount) throws FileNotFoundException {
         int hintUses = 0;
+
         while (8 >= badGuessesCount) {
             System.out.println("Please enter a letter:");
             Scanner keyboard = new Scanner(System.in);
@@ -53,6 +55,7 @@ public class Main {
                     System.out.println(updateDashes(word, playerGuesses, newWord));
                 }
             }
+
             else if (guessLetter.equals("2")) {
                 if (hintUses<=3) {
                     hintUses++;
@@ -93,10 +96,12 @@ public class Main {
                         }
                     }
                 }
+
                 else {
                     System.out.println("Sorry, you used up all of your attempts to get a hint.");
                 }
             }
+
             else {
                 playerGuesses.add(guessLetter.charAt(0));
                 int rightLetterOrNot = 0;
@@ -124,6 +129,7 @@ public class Main {
                 }
             }
         }
+
         System.out.println("The word was " + word);
         System.exit(0);
     }
