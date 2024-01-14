@@ -116,6 +116,7 @@ public class Main {
                         break;
                     }
                 }
+
                 if (rightLetterOrNot == 0) {
                     badGuessesCount++;
                     int guessesLeft = 9-badGuessesCount;
