@@ -12,7 +12,6 @@ public class Main {
         List<String> words = new ArrayList<>();
 
         int badGuessesCount = 0;
-        int goodGuessesCount = 0;
 
         while (scanner.hasNext()) {
             words.add(scanner.nextLine());
@@ -20,6 +19,7 @@ public class Main {
 
         Random rand = new Random();
         String word = words.get(rand.nextInt(words.size()));
+        System.out.println(word);
 
         List<Character> playerGuesses = new ArrayList<>();
         System.out.println("Welcome to Hangman! *Note: If you want to guess the full word at any time, press 1, if you want to have a hint at any time, press 2 (you only have 3 hints available)*");
@@ -30,9 +30,9 @@ public class Main {
         }
 
         System.out.println("Your word is: "+newWord);
-        everything(word, playerGuesses, badGuessesCount, newWord, goodGuessesCount);
+        everything(word, playerGuesses, badGuessesCount, newWord);
     }
-    public static void everything(String word, List<Character> playerGuesses, int badGuessesCount, StringBuilder newWord, int goodGuessesCount) throws FileNotFoundException {
+    public static void everything(String word, List<Character> playerGuesses, int badGuessesCount, StringBuilder newWord) throws FileNotFoundException {
         int hintUses = 0;
 
         while (8 >= badGuessesCount) {
@@ -50,8 +50,11 @@ public class Main {
                     System.exit(0);
                 }
                 else {
-                    System.out.println("Sorry, that's not the word.");
                     badGuessesCount++;
+                    int guessesLeft = 9-badGuessesCount;
+                    System.out.println("Sorry, that's not the word. You have "+ guessesLeft+ " guesses left.");
+                    System.out.println("Hangman:");
+                    System.out.println(printHangman(badGuessesCount));
                     System.out.println(updateDashes(word, playerGuesses, newWord));
                 }
             }
@@ -107,11 +110,10 @@ public class Main {
                 int rightLetterOrNot = 0;
 
                 for (int i = 0; i < word.length(); i++) {
-                    if (guessLetter.equals(word.substring(i, i + 1))) {
+                    if (guessLetter.contains(word.substring(i, i + 1))) {
                         int guessesLeft = 9-badGuessesCount;
                         System.out.println("That letter is in the word! You have "+ guessesLeft+" guesses left.");
                         System.out.println(updateDashes(word, playerGuesses, newWord));
-                        goodGuessesCount++;
                         rightLetterOrNot++;
                         break;
                     }
@@ -147,6 +149,12 @@ public class Main {
                 newWord.append("_");
             }
         }
+        if (newWord.toString().equals(word)) {
+            System.out.println("Congratulations! You guessed the word");
+            System.out.println("The word is "+word);
+            System.exit(0);
+        }
+
         return "This is the word now: "+newWord;
     }
 
