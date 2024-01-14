@@ -19,7 +19,6 @@ public class Main {
 
         Random rand = new Random();
         String word = words.get(rand.nextInt(words.size()));
-        System.out.println(word);
 
         List<Character> playerGuesses = new ArrayList<>();
         System.out.println("Welcome to Hangman! *Note: If you want to guess the full word at any time, press 1, if you want to have a hint at any time, press 2 (you only have 3 hints available)*");
