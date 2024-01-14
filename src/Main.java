@@ -196,6 +196,7 @@ public class Main {
             stringBuilder.append("|      |\n");
             stringBuilder.append("     \\ 0 /\n");
             stringBuilder.append("       |\n");
+            stringBuilder.append("       |\n");
             stringBuilder.append("      / \n");
             stringBuilder.append("He's dying....\n");
         }
@@ -203,6 +204,7 @@ public class Main {
             stringBuilder.append("-------\n");
             stringBuilder.append("|      |\n");
             stringBuilder.append("     \\ 0 /\n");
+            stringBuilder.append("       |\n");
             stringBuilder.append("       |\n");
             stringBuilder.append("      / \\\n");
             stringBuilder.append("Oops! You killed him.");
